@@ -3,9 +3,9 @@ class PostsController < ApplicationController
    @post = Post.all.order(id: "DESC")
  end
 
- def
-  Post.create(content: params[:content])
-  redirect_to action: :index
+ def create
+  post = Post.create(content: params[:content], checked: false)
+  render json:{ post: post }
  end
 
  def checked
